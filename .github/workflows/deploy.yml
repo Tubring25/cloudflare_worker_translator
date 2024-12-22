@@ -25,10 +25,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       
-      - name: Build Project
-        run: pnpm run build
-      
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: deploy --minify
