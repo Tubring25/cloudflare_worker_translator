@@ -53,7 +53,7 @@ app.post('/translate', async (c) => {
 app.post('/translate/gemini', async (c) => {
   try {
     const genAI = new GoogleGenerativeAI(c.env.GOOGLE_GEMINI_API_KEY)
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" })
     const { originalText, targetLanguage } = await c.req.json()
     console.log(originalText, targetLanguage, genAI)
 
