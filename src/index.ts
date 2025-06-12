@@ -23,7 +23,7 @@ app.post('/translate', async (c) => {
     // First try Gemini
     try {
       const genAI = new GoogleGenerativeAI(c.env.GOOGLE_GEMINI_API_KEY)
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro-preview-06-05" })
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" })
 
       const prompt = `You are a professional translator. Your task is to accurately translate the following text to ${targetLanguage}. 
       Rules:
