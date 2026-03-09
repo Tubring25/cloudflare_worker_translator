@@ -23,7 +23,7 @@ app.post('/translate', async (c) => {
     // First try Gemini
     try {
       const genAI = new GoogleGenerativeAI(c.env.GOOGLE_GEMINI_API_KEY)
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" })
+      const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" })
 
       const prompt = `You are a professional translator. Your task is to accurately translate the following text to ${targetLanguage}. 
       Rules:
@@ -47,7 +47,7 @@ app.post('/translate', async (c) => {
       console.error('Gemini translation failed, trying GPT:', geminiError)
       
       // Fallback to GPT
-      const response = await fetch('https://burn.hair/v1', {
+      const response = await fetch('https://burn.hair/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ app.post('/translate', async (c) => {
 app.post('/translate/gemini', async (c) => {
   try {
     const genAI = new GoogleGenerativeAI(c.env.GOOGLE_GEMINI_API_KEY)
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" })
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" })
     const { originalText, targetLanguage } = await c.req.json()
     console.log(originalText, targetLanguage, genAI)
 
