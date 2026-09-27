@@ -2,6 +2,12 @@ name = "shortcut-translation"
 main = "src/index.ts"
 compatibility_date = "2024-12-02"
 
+[vars]
+GOOGLE_CLOUD_LOCATION = "global"
+GEMINI_MODEL = "gemini-3-flash-preview"
+# GOOGLE_CLOUD_PROJECT = "your-project-id"
+# Store VERTEX_API_KEY using: wrangler secret put VERTEX_API_KEY
+
 # compatibility_flags = [ "nodejs_compat" ]
 
 # [vars]

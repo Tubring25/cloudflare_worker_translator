@@ -2,14 +2,17 @@
   "name": "shortcut-translation",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.21.0",
     "hono": "^4.6.12"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241112.0",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
     "wrangler": "^3.88.0"
   }
 }
